@@ -1,5 +1,5 @@
 using UnityEngine;
-using Interfaces.Movement;
+using Interfaces.Listeners;
 using Structs.Movement;
 namespace Components.Listeners
 {
@@ -9,7 +9,7 @@ namespace Components.Listeners
         {
             return Physics2D.OverlapCircle(data.surfaceChecker.position, data.surfaceCheckRadius, data.whatIsSurface);
         }
-        public void DrawGizmos(SurfaceContactStruct data, Color color)
+        public void DrawDebug(SurfaceContactStruct data, Color color)
         {
             Gizmos.color = color;
             Gizmos.DrawWireSphere(data.surfaceChecker.position, data.surfaceCheckRadius);

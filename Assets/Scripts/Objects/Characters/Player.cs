@@ -1,9 +1,10 @@
-using Components.Movement;
 using UnityEngine;
 using Structs.Movement;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using Components.Listeners;
+using Interfaces.Listeners;
+using Interfaces.Movement;
+
 namespace Objects.Characters
 {
     [RequireComponent(typeof(BoxCollider2D))]
@@ -13,28 +14,28 @@ namespace Objects.Characters
         [Header("Player Properties")]
         [SerializeField] private GravityStruct gravityData;
         [SerializeField] private MotionProfilerStruct motionProfilerData;
-        [FormerlySerializedAs("ballisticsCalculatorData")] [FormerlySerializedAs("ballisticsData")] [SerializeField] private BallisticsProcessorStruct ballisticsProcessorData;
+        [SerializeField] private BallisticsProcessorStruct ballisticsProcessorData;
         [SerializeField] private SurfaceContactStruct wallContactData;
         [SerializeField] private SurfaceContactStruct groundContactData;
         [Header("Player Components")]
         [SerializeField] private Rigidbody2D body;
-        [SerializeField] private GravityComponent gravity;
-        [SerializeField] private MovementComponent movement;
-        [SerializeField] private SurfaceContactComponent surfaceContact;
-        [FormerlySerializedAs("ballisticsCalculate")] [SerializeField] private BallisticsProcessorComponent ballisticsProcessor;
+        [SerializeField] private IGravityAffected _gravity;
+        [SerializeField] private IMotionProfiler _movement;
+        [SerializeField] private ISurfaceContact _surfaceContact;
+        [SerializeField] private IBallisticsProcessor _ballisticsProcessor;
+        [SerializeField] private InputReaderComponent _inputReader;
 
         private bool _isJumping = false;
         private bool _isGround = false;
-        
-        private void OnMove(InputValue value) 
+
+        private void OnEnable()
         {
-            Vector2 moveDirection = value.Get<Vector2>();
-            motionProfilerData.direction = moveDirection.x;
+            _inputReader.OnJumpEvent += Jump;
         }
-        private void OnJump()
+        private void Jump()
         {
             _isJumping = true;
-            ballisticsProcessor.SetStartVelocity(ballisticsProcessorData, body);
+            _ballisticsProcessor.SetStartVelocity(ballisticsProcessorData, body);
         }
         private void FixedUpdate()
         {
@@ -42,23 +43,22 @@ namespace Objects.Characters
             ApplyMovement();
             SurfaceCheck();
         }
-
         private void SurfaceCheck()
         {
-            _isGround = surfaceContact.CheckContact(wallContactData);
-            _isGround = surfaceContact.CheckContact(groundContactData);
+            _isGround = _surfaceContact.CheckContact(wallContactData);
+            _isGround = _surfaceContact.CheckContact(groundContactData);
             if (_isGround) _isJumping = false;
         }
         private void ApplyMovement()
         {
-            movement.LinearMove(ref motionProfilerData, body);
+            _movement.LinearMove(ref motionProfilerData, body);
         }
         private void ApplyGravity()
         {
             if (_isJumping)
-                ballisticsProcessor.ApplyGravity(ballisticsProcessorData, body);
+                _ballisticsProcessor.ApplyGravity(ballisticsProcessorData, body);
             else if (body.linearVelocity.y <= 0)    
-                gravity.ApplyGravity(gravityData, body);
+                _gravity.ApplyGravity(gravityData, body);
         }
     }
 }
