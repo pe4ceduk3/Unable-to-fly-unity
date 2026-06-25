@@ -3,7 +3,7 @@ using Interfaces.Movement;
 using Structs.Movement;
 namespace Components.Movement
 {
-    public class BallisticsProcessorComponent : MonoBehaviour, IBallisticsProcessor
+    public class BallisticsComponent : MonoBehaviour, IBallisticsProcessor
     {
         public void SetStartVelocity(BallisticsProcessorStruct data, Rigidbody2D body)
         {

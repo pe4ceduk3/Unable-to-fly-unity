@@ -1,9 +1,9 @@
 using Interfaces.FiniteStateMachine;
 namespace Structs.FiniteStateMachine
 {
-    public struct StateMachineStruct
+    public struct StateMachineStruct : IStateMachineData
     {
-        public IState CurrentState;
-        public StateStruct CurrentStateData;
+        public IState CurrentState { get; set; }
+        public StateStruct CurrentStateData { get; set; }
     }
 }

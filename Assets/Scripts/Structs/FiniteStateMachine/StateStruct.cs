@@ -1,9 +1,10 @@
 using Interfaces.FiniteStateMachine;
 namespace Structs.FiniteStateMachine
 {
-    public struct StateStruct
+    public struct StateStruct : IStateData
     {
-        public IState[] NextStateOnExit;
-        public IState[] NextStateWhileProcess;
+        public IState[] NextStatesOnExit { get; set; }
+        public IState[] NextStatesWhileProcess { get; set; }
+        public IState[] NextStatesOnInput { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace Objects.PlayerStateMachine
         private MotionProfilerStruct moveData;
         [Header("Components")]
         [SerializeField]
-        private IMotionProfiler _moveProfiler;
+        private IAccelerationProfiler _moveProfiler;
         [SerializeField]
         private IBallisticsProcessor _jumpProcessor;
         [Header("Body")]
