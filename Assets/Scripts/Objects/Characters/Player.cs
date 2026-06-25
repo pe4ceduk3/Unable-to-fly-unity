@@ -20,7 +20,7 @@ namespace Objects.Characters
         [Header("Player Components")]
         [SerializeField] private Rigidbody2D body;
         [SerializeField] private IGravityAffected _gravity;
-        [SerializeField] private IMotionProfiler _movement;
+        [SerializeField] private IAccelerationProfiler _movement;
         [SerializeField] private ISurfaceContact _surfaceContact;
         [SerializeField] private IBallisticsProcessor _ballisticsProcessor;
         [SerializeField] private InputReaderComponent _inputReader;
