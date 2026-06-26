@@ -24,15 +24,10 @@ namespace Objects.Characters
         [SerializeField] private ILinearMovement _linearMovement;
         [SerializeField] private ISurfaceContact _surfaceContact;
         [SerializeField] private IBallisticsProcessor _ballisticsProcessor;
-        [SerializeField] private InputReaderComponent _inputReader;
 
         private bool _isJumping = false;
         private bool _isGround = false;
 
-        private void OnEnable()
-        {
-            _inputReader.OnJumpEvent += Jump;
-        }
         private void Jump()
         {
             _isJumping = true;
@@ -41,7 +36,6 @@ namespace Objects.Characters
         private void FixedUpdate()
         {
             ApplyGravity();
-            //ApplyMovement();
             SurfaceCheck();
         }
         private void SurfaceCheck()
@@ -50,10 +44,6 @@ namespace Objects.Characters
             _isGround = _surfaceContact.CheckContact(groundContactData);
             if (_isGround) _isJumping = false;
         }
-        //private void ApplyMovement()
-        //{
-        //    _linearMovement.ApplyLinearSpeed(ref motionProfilerData, body);
-        //}
         private void ApplyGravity()
         {
             if (_isJumping)

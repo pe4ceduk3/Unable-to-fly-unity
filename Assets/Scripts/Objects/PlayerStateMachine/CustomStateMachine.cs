@@ -1,5 +1,4 @@
 using Interfaces.FiniteStateMachine;
-using Structs.FiniteStateMachine;
 using UnityEngine;
 
 namespace Objects.PlayerStateMachine
