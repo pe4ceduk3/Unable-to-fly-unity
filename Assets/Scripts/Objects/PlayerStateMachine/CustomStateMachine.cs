@@ -6,7 +6,7 @@ namespace Objects.PlayerStateMachine
 {
     public class CustomStateMachine : MonoBehaviour, IStateMachine
     {
-        private StateMachineStruct _stateMachine;
+        private IStateMachineData _stateMachine;
         
         public IState GetNextState(IState[] statesArr)
         {
@@ -35,9 +35,9 @@ namespace Objects.PlayerStateMachine
         }
         private void StateChangeIfCan()
         {
-            StateStruct stateData = _stateMachine.CurrentStateData;
-            IState newState = GetNextState(stateData.NextStateOnExit) ?? 
-                              GetNextState(stateData.NextStateWhileProcess);
+            IStateData stateData = _stateMachine.CurrentStateData;
+            IState newState = GetNextState(stateData.NextStatesOnExit) ?? 
+                              GetNextState(stateData.NextStatesWhileProcess);
             if (newState != null) ChangeState(newState);
         }
     }
