@@ -9,6 +9,7 @@ namespace Objects.Characters
             OnAir
         }
         public States CurrentState;
+        
         public SurfaceStates(States currentState = States.OnAir)
         {
             CurrentState = currentState;
