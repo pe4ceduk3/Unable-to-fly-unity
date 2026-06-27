@@ -13,5 +13,6 @@ namespace Objects.Characters
         {
             CurrentState = currentState;
         }
+        // just added comment!
     }
 }
