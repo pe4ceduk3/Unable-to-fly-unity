@@ -1,9 +1,9 @@
 using UnityEngine;
-using Structs.Movement;
+using Interfaces.Data;
 namespace Interfaces.Movement
 {
     public interface IAccelerationProfiler
     {
-        void Accelerate(ref MotionProfilerStruct data, Rigidbody2D body);
+        void Accelerate(IAccelerationData accel, ISpeedData spd, IDirectionData dir, Rigidbody2D body);
     }
 }

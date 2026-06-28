@@ -1,10 +1,10 @@
-using Structs.Movement;
 using UnityEngine;
+using Interfaces.Data;
 namespace Interfaces.Listeners
 {
     public interface ISurfaceContact
     {
-       bool CheckContact(SurfaceContactStruct data);
-       void DrawDebug(SurfaceContactStruct data, Color color);
+       bool CheckContact(ISurfaceData data);
+       void DrawDebug(ISurfaceData data, Color color);
     }
 }

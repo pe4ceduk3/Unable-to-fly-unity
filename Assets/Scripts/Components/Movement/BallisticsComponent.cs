@@ -1,20 +1,20 @@
 using UnityEngine;
 using Interfaces.Movement;
-using Structs.Movement;
+using Interfaces.Data;
+
 namespace Components.Movement
 {
     public class BallisticsComponent : MonoBehaviour, IBallisticsProcessor
     {
-        public void SetStartVelocity(BallisticsProcessorStruct data, Rigidbody2D body)
+        public void SetStartVelocity(IBallisticsData data, Rigidbody2D body)
         {
-            float velocityY = (2.0f * data.peak) / data.duration;
+            float velocityY = (2.0f * data.Peak) / data.Duration;
             body.linearVelocity = new Vector2(body.linearVelocity.x, velocityY);
         }
-        public void ApplyGravity(BallisticsProcessorStruct data, Rigidbody2D body)
+        public void ApplyGravity(IBallisticsData data, Rigidbody2D body)
         {
-            float gravityAcceleration = (-2.0f * data.peak) / (data.duration * data.duration);
-            float velocityY = gravityAcceleration * Time.fixedDeltaTime;
-            if (data.maxGravity < velocityY) velocityY = data.maxGravity;
+            float gravity = (-2.0f * data.Peak) / (data.Duration * data.Duration);
+            float velocityY = gravity * Time.fixedDeltaTime;
             body.linearVelocity += new Vector2(body.linearVelocity.x, velocityY);
         }
     }

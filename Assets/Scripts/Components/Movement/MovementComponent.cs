@@ -1,18 +1,18 @@
 using Interfaces.Data;
 using UnityEngine;
 using Interfaces.Movement;
-using Structs.Movement;
+using Interfaces.Data;
 
 namespace Components.Movement
 {
     public class MovementComponent : MonoBehaviour, IAccelerationProfiler, ILinearMovement
     {
-        public void Accelerate(ref MotionProfilerStruct data, Rigidbody2D body)
+        public void Accelerate(IAccelerationData accel, ISpeedData spd, IDirectionData dir, Rigidbody2D body)
         {
-            float time = data.currentTime / data.accelerationDuration;
+            float time = accel.CurrentTime / accel.AccelerationDuration;
             float easyInTime = time * time;
-            data.currentSpeed = data.targetSpeed * easyInTime * data.direction;
-            body.linearVelocity = new Vector2(data.currentSpeed, body.linearVelocity.y);
+            accel.CurrentSpeed = spd.Speed * easyInTime * dir.Direction;
+            body.linearVelocity = new Vector2(accel.CurrentSpeed, body.linearVelocity.y);
         }
         public void ApplyLinearSpeed(ISpeedData spd, IDirectionData dir, Rigidbody2D body)
         {

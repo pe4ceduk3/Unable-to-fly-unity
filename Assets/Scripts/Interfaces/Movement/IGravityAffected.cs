@@ -1,11 +1,11 @@
-using Structs.Movement;
 using UnityEngine;
+using Interfaces.Data;
 
 namespace Interfaces.Movement
 {
    public interface IGravityAffected
     {
-        void ApplyGravity(GravityStruct data, Rigidbody2D body);
-        void StopGravity(GravityStruct data, Rigidbody2D body);
+        void ApplyGravity(IGravityData data, Rigidbody2D body);
+        void StopGravity(IGravityData data, Rigidbody2D body);
     }
 }
