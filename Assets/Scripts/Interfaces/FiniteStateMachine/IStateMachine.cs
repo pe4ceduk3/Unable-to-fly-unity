@@ -5,5 +5,6 @@ namespace Interfaces.FiniteStateMachine
     {
         void ChangeState(IState newState);
         IState GetNextState(IState[] states);
+        void InitializeState(IState newState);
     }
 }

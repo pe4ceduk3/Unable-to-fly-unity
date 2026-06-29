@@ -523,10 +523,6 @@ GameObject:
   - component: {fileID: 1488679398}
   - component: {fileID: 1488679399}
   - component: {fileID: 1488679400}
-  - component: {fileID: 1488679405}
-  - component: {fileID: 1488679404}
-  - component: {fileID: 1488679403}
-  - component: {fileID: 1488679402}
   - component: {fileID: 1488679401}
   m_Layer: 31
   m_Name: Player
@@ -711,9 +707,9 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: 
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 519420031}
+  m_Camera: {fileID: 0}
 --- !u!114 &1488679400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,16 +717,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488679392}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a12811b507becf1486556b03f6955d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bb75e1d527b4fd49a3846a37f380cb6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 5
-  jumpForce: 10
-  regularGravity: 10
-  afterJumpGravity: 15
-  _rigidbody: {fileID: 1488679398}
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.Characters.Player
 --- !u!114 &1488679401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,87 +731,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1488679392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b067c50d937749a194ba6ecb20124f60, type: 3}
+  m_Script: {fileID: 11500000, guid: ceb0f2d624c14bf6a6fc022c10849ac8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Objects.Characters.Player
-  gravityData:
-    gravity: 10
-    maxGravity: 200
-  motionProfilerData:
-    targetSpeed: 500
-    accelerationDuration: 0.2
-    direction: 0
-    currentSpeed: 0
-    currentTime: 0
-  ballisticsData:
-    peak: 5
-    maxGravity: 1000
-    duration: 0.4
-  wallContactData:
-    surfaceChecker: {fileID: 1883460154}
-    whatIsSurface:
-      serializedVersion: 2
-      m_Bits: 64
-    surfaceCheckRadius: 0.1
-  groundContactData:
-    surfaceChecker: {fileID: 779909570}
-    whatIsSurface:
-      serializedVersion: 2
-      m_Bits: 64
-    surfaceCheckRadius: 0.1
-  body: {fileID: 1488679398}
-  gravity: {fileID: 1488679404}
-  movement: {fileID: 1488679403}
-  surfaceContact: {fileID: 1488679402}
-  ballisticsCalculate: {fileID: 1488679405}
---- !u!114 &1488679402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488679392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e9f2287087995dd7ae0f5314769b87a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Components.Movement.SurfaceContactComponent
---- !u!114 &1488679403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488679392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 234305814ace46859d228fb5f3ff3a09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Components.Movement.MovementComponent
---- !u!114 &1488679404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488679392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5a1ffc50aad69e16bd92706489118e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Components.Movement.GravityComponent
---- !u!114 &1488679405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488679392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58293c637caa45f2ab4b028c3ba29ecc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Components.Movement.BallisticsComponent
+  m_EditorClassIdentifier: Assembly-CSharp::CombatController
+  commandBinds:
+  - commandId: d
+    inputAction:
+      m_UseReference: 0
+      m_Action:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 4902b084-f6e2-4fcd-b8d3-8d2462da1630
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings:
+        - m_Name: 
+          m_Id: fc763bd1-2172-4ede-bbe0-35a2f60089f0
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: Input
+          m_Flags: 0
+        m_Flags: 0
+      m_Reference: {fileID: 0}
 --- !u!1 &1883460153
 GameObject:
   m_ObjectHideFlags: 0

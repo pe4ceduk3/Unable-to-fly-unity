@@ -1,4 +1,3 @@
-using Interfaces.Data;
 using UnityEngine;
 using Interfaces.Movement;
 using Interfaces.Data;
