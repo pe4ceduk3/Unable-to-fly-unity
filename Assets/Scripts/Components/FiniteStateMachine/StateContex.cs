@@ -6,9 +6,7 @@ namespace Components.FiniteStateMachine
     public class StateContext : MonoBehaviour, IStateContext
     {
         public IStateCondition Condition { get; set; }
-        public IState CurrentState { get; set; }
-        public IState[] OnExit { get; set; }
-        public IState[] WhileProcess { get; set; }
-        public IState[] OnInput { get; set; }
+        public IState State { get; set; }
+        public IStateTransitions Transitions { get; set; }
     }
 }
