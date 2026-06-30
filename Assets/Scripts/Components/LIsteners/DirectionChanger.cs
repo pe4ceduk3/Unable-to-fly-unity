@@ -34,7 +34,7 @@ namespace Components.Listeners
             else if (inputAction == stop.action)
             {
                 direction.Direction = 0.0f;
-            }l
+            }
         }
     }
 }
