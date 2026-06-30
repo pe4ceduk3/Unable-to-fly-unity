@@ -5,7 +5,7 @@ namespace Components.Listeners
 {
     public class SurfaceContactComponent : MonoBehaviour, ISurfaceContact
     {
-        public bool CheckContact(ISurfaceData data)
+        public bool HasSurface(ISurfaceData data)
         {
             return Physics2D.OverlapCircle(data.Checker.position, data.Radius, data.WhatIsSurface);
         }

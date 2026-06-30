@@ -1,14 +1,13 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Objects.Characters
 {
     public class Player : MonoBehaviour
     {
-        private void Awake()
+        private void OnEnable()
         {
-            Debug.Log("Player Awake");
+            throw new NotImplementedException();
         }
     }
 }

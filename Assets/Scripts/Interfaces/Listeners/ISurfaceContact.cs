@@ -4,7 +4,7 @@ namespace Interfaces.Listeners
 {
     public interface ISurfaceContact
     {
-       bool CheckContact(ISurfaceData data);
+       bool HasSurface(ISurfaceData data);
        void DrawDebug(ISurfaceData data, Color color);
     }
 }

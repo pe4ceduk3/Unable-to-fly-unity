@@ -722,6 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb75e1d527b4fd49a3846a37f380cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.Characters.Player
+  inputAction: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!114 &1488679401
 MonoBehaviour:
   m_ObjectHideFlags: 0
