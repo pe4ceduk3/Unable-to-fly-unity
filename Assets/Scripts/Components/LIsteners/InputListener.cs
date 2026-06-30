@@ -1,20 +1,37 @@
+using System;
+using Interfaces.Listeners;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Components.Listeners
 {
-    public class InputListener : MonoBehaviour
+    public class InputListener : MonoBehaviour, IInputReader
     {
-        // 1. Передаем сам ассет
         [SerializeField] private InputActionAsset inputActionAsset;
+        public event Action<InputAction> OnInput;
 
-        // 2. Выбор карты ввода из назначенного выше ассета
-        [SerializeField] // Атрибут связывает поле с инстансом ассета
-        private string actionMapName;
+        private void OnEnable()
+        {
+            foreach ( InputActionMap inputActionMap in inputActionAsset.actionMaps )
+            {
+                inputActionMap.actionTriggered += OnAction;
+            }
+        }
 
-        // 3. Структура для выбора конкретного Action
-        // Она автоматически отобразит удобный выпадающий список в инспекторе,
-        // где можно выбрать абсолютно любое действие (или отфильтровать по карте)
-        [SerializeField] private InputActionProperty specificAction;
+        private void OnDisable()
+        {
+            foreach (InputActionMap inputActionMap in inputActionAsset.actionMaps)
+            {
+                inputActionMap.actionTriggered += OnAction;
+            }
+        }
+
+        private void OnAction(InputAction.CallbackContext context)
+        {
+            if ( context.performed )
+            {
+                OnInput?.Invoke(context.action);
+            }
+        }
     }
 }
