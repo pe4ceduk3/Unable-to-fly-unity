@@ -10,15 +10,28 @@ namespace Components.States.Dash
         [Header("Objects")]
         [SerializeField] private Rigidbody2D body;
         [Header("Components")]
-        [SerializeReference] private ILinearMovement linearMovement;
+        [SerializeField] private Component linearMovement;
         [Header("Components data")]
-        [SerializeReference] private ISpeedData speedData;
-        [SerializeReference] private IDirectionData directionData;
+        [SerializeField] private Component speedData;
+        [SerializeField] private Component directionData;
+        
+        private ILinearMovement _linearMovement;
+        
+        private ISpeedData _speedData;
+        private IDirectionData _directionData;
+        
         public void Enter()
         {
-            linearMovement.ApplyLinearSpeed(speedData, directionData, body);
+            _linearMovement.ApplyLinearSpeed(_speedData, _directionData, body);
         }
         public void Exit() {}
         public void FixedProcess() {}
+
+        private void OnValidate ()
+        {
+            if (linearMovement is ILinearMovement targetLinearMovement) _linearMovement = targetLinearMovement;
+            if (speedData is ISpeedData targetSpeed) _speedData = targetSpeed;
+            if (directionData is IDirectionData targetDirection) _directionData = targetDirection;
+        }
     }
 }

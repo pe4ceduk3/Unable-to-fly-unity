@@ -1,3 +1,4 @@
+using System;
 using Interfaces.Data;
 using Interfaces.FiniteStateMachine;
 using Interfaces.Listeners;
@@ -8,16 +9,26 @@ namespace Components.States.WallGrub
 {
     public class WallGrubCondition : MonoBehaviour, IStateCondition
     {
-        [SerializeReference] private ISurfaceContact surfaceChecker;
-        [SerializeReference] private ISurfaceData wall;
+        [SerializeField] private Component surfaceContact;
+        [SerializeField] private Component wall;
+        
+        private ISurfaceContact _surfaceContact;
+        private ISurfaceData _wall;
+        
         public bool CanEnter()
         {
-            return surfaceChecker.HasSurface(wall);
+            return _surfaceContact.HasSurface(_wall);
         }
         public bool CanExit()
         {
-           return !surfaceChecker.HasSurface(wall);
+           return !_surfaceContact.HasSurface(_wall);
         }
         public bool CanEnterOnInput(InputAction inputAction) => false;
+
+        private void OnValidate()
+        {
+            if (surfaceContact is ISurfaceContact targetSurfaceContact) _surfaceContact = targetSurfaceContact;
+            if (wall is ISurfaceData targetWall) _wall = targetWall;
+        }
     }
 }

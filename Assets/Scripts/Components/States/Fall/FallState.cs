@@ -1,3 +1,4 @@
+using System;
 using Interfaces.Data;
 using Interfaces.FiniteStateMachine;
 using Interfaces.Movement;
@@ -11,14 +12,23 @@ namespace Components.States.Fall
         [Header("Object data")]
         [SerializeField] private Rigidbody2D body;
         [SerializeField] private InputActionReference fallAction;
-        [Header("Components")]
-        [SerializeReference] private ILinearMovement movement;
-        [SerializeReference] private IGravityAffected gravityAffected;
+
+        [Header("Components")] 
+        [SerializeField] private Component movement;
+        [SerializeField] private Component gravityAffected;
         [Header("Components data")]
-        [SerializeReference] private IGravityData gravityData;
-        [SerializeReference] private IGravityData fastFallGravityData;
-        [SerializeReference] private IDirectionData directionData;
-        [SerializeReference] private ISpeedData speedData;
+        [SerializeField] private Component gravityData;
+        [SerializeField] private Component directionData;
+        [SerializeField] private Component fastFallGravityData;
+        [SerializeField] private Component speedData;
+        
+        private ILinearMovement _movement;
+        private IGravityAffected _gravityAffected;
+        
+        private IGravityData _gravityData;
+        private IGravityData _fastFallGravityData;
+        private IDirectionData _directionData;
+        private ISpeedData _speedData;
         
         private bool _isFastFall;
         
@@ -26,15 +36,32 @@ namespace Components.States.Fall
         public void Exit() {}
         public void FixedProcess()
         {
-            movement.ApplyLinearSpeed(speedData, directionData, body);
+            _movement.ApplyLinearSpeed(_speedData, _directionData, body);
             ApplyGravity();
+        }
+
+        private void OnValidate()
+        {
+            if (movement is ILinearMovement targetMovement)
+                _movement = targetMovement;
+            if (gravityAffected is IGravityAffected targetGravityAffected)
+                _gravityAffected = targetGravityAffected;
+            
+            if (gravityData is IGravityData targetGravityData)
+                _gravityData = targetGravityData;
+            if (fastFallGravityData is IGravityData targetFastFallGravityData)
+                _fastFallGravityData = targetFastFallGravityData;
+            if (directionData is IDirectionData targetDirectionData)
+                _directionData = targetDirectionData;
+            if (speedData is ISpeedData targetSpeedData)
+                _speedData = targetSpeedData;
         }
 
         private void ApplyGravity()
         {
-            IGravityData currentGravity = gravityData;
-            if (_isFastFall) currentGravity = fastFallGravityData;
-            gravityAffected.ApplyGravity(currentGravity, body);
+            IGravityData currentGravity = _gravityData;
+            if (_isFastFall) currentGravity = _fastFallGravityData;
+            _gravityAffected.ApplyGravity(currentGravity, body);
         }
         private void OnEnable()
         {

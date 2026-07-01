@@ -8,8 +8,9 @@ namespace Components.FiniteStateMachine
     public class StateMachine : MonoBehaviour, IStateMachine, IStateMachineData
     {
         public IStateContext CurrentStateContext { get; set; }
+        [SerializeField] private Component currentStateContext;
         [SerializeReference] private IInputReader inputReader;
-
+        
         public void ChangeState(IStateContext newStateContext)
         {
             CurrentStateContext.State.Exit();
@@ -30,6 +31,11 @@ namespace Components.FiniteStateMachine
         {
             CurrentStateContext = state;
             state.State.Enter();
+        }
+
+        private void OnValidate()
+        {
+            if (currentStateContext is IStateContext targetStateContext) CurrentStateContext = targetStateContext;
         }
         private void FixedUpdate()
         {

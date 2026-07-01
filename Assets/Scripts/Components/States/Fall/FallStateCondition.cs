@@ -1,3 +1,4 @@
+using System;
 using Interfaces.Data;
 using Interfaces.FiniteStateMachine;
 using Interfaces.Listeners;
@@ -9,25 +10,34 @@ namespace Components.States.Fall
     public class FallStateCondition : MonoBehaviour, IStateCondition
     {
         [SerializeField] private InputActionReference fallAction;
+        [SerializeField] private Component surfaceContact;
+        [SerializeField] private Component ground;
+        [SerializeField] private Component wall;
         
-        [SerializeReference] private ISurfaceContact surfaceContact;
-        
-        [SerializeReference] private ISurfaceData ground;
-        [SerializeReference] private ISurfaceData wall;
+        private ISurfaceContact _surfaceContact;
+        private ISurfaceData _ground;
+        private ISurfaceData _wall;
         public bool CanEnter()
         {
-            if (surfaceContact.HasSurface(ground)) return false;
-            if (surfaceContact.HasSurface(wall)) return false;
+            if (_surfaceContact.HasSurface(_ground)) return false;
+            if (_surfaceContact.HasSurface(_wall)) return false;
             return true;
         }
 
         public bool CanExit()
         {
-            return surfaceContact.HasSurface(ground) || surfaceContact.HasSurface(wall);
+            return _surfaceContact.HasSurface(_ground) || _surfaceContact.HasSurface(_wall);
         }
         public bool CanEnterOnInput(InputAction inputAction)
         {
             return fallAction.action == inputAction;
+        }
+
+        private void OnValidate()
+        {
+            if (surfaceContact is ISurfaceContact targetSurfaceContact) _surfaceContact = targetSurfaceContact;
+            if (ground is ISurfaceData targetGround) _ground = targetGround;
+            if (wall is ISurfaceData targetWall) _wall = targetWall;
         }
     }
 }
