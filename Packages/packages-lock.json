@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.depra.serialize-reference.extensions": {
+      "version": "https://github.com/Depra-Inc/SerializeReference.Extensions.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "7c26ee79d8df682798053080bb59d9ab25acdf80"
+    },
     "com.unity.2d.animation": {
       "version": "14.0.3",
       "depth": 0,

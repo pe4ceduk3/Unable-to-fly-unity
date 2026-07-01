@@ -61,15 +61,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Heading",
-                    "type": "Value",
-                    "id": "cbcdba7e-8c7f-49ed-826e-270f0b9b691d",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Shoot",
                     "type": "Button",
                     "id": "d731f740-fe4d-4ae8-8300-b3074b44fd33",
@@ -82,6 +73,33 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "89ee131c-cee7-4abb-afac-59c0ff2c21de",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Right",
+                    "type": "Button",
+                    "id": "84810130-5b12-42fd-a70e-30196b335229",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Stop",
+                    "type": "Button",
+                    "id": "2d2af111-fae0-4c9d-9f59-c382027373b5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Left",
+                    "type": "Button",
+                    "id": "0ce421d5-c459-408b-b2d1-3b803d0f6f97",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -212,94 +230,6 @@
                 },
                 {
                     "name": "",
-                    "id": "12e63a44-ca03-4b57-b9f0-7669a453d689",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "Scale(factor=-1)",
-                    "groups": "",
-                    "action": "Heading",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ced7cbb1-efcf-4959-b7df-398437e43e94",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "Scale(factor=-1)",
-                    "groups": "",
-                    "action": "Heading",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "85ea6b14-2b65-42fb-a518-1d34b41f0fc7",
-                    "path": "<Keyboard>/x",
-                    "interactions": "",
-                    "processors": "Scale(factor=-1)",
-                    "groups": "",
-                    "action": "Heading",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5ac993ac-abd4-495c-9f50-635b8e7bb5ec",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "Scale",
-                    "groups": "",
-                    "action": "Heading",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "51f6e66d-42ff-42d5-99fb-19fc1efc1dcc",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "Scale",
-                    "groups": "",
-                    "action": "Heading",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c2821fda-4b7c-4fb7-8fb2-e0fc38b25a19",
-                    "path": "<Keyboard>/v",
-                    "interactions": "",
-                    "processors": "Scale",
-                    "groups": "",
-                    "action": "Heading",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1fac837b-67ca-4395-ab05-c935ac46d7a2",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "Scale(factor=0)",
-                    "groups": "",
-                    "action": "Heading",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5e07d8c3-9fde-4cc5-9146-c4dc623ec3f1",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "Scale(factor=0)",
-                    "groups": "",
-                    "action": "Heading",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "80135366-8fab-4aa7-b3fe-792509a2d348",
                     "path": "<Keyboard>/l",
                     "interactions": "",
@@ -339,6 +269,182 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4914fc1f-c37f-4c8c-aa35-9fb92d78fca4",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db513710-196e-4894-b876-fc83c310abff",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cdf0340f-b57a-4349-a288-9770f4317fff",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21416d6d-82c3-4a9d-a8bb-ca39d8447b36",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34efbec5-512e-4344-a924-2bfdef8ee055",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6452b209-bfe4-4560-9cb1-0847839b7b3b",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "27524083-29d4-4155-8be8-d9e1178f50ad",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f5c18e0-e7c9-43a9-b9c1-bf8658088f5d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "35b34997-ec0d-4bd0-8e5a-3cb79f44297e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "154b860c-3824-4e35-82b2-855492aaacb1",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "713500af-4ca3-42cc-8e5e-783bf0307db3",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "934a731d-cd37-4c25-94a7-a3c6f85b0cc5",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "2d1dd9a8-850c-4d9f-a3cc-796937e58305",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "20404a72-6db7-4d4e-b69c-525067779295",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "8e2cf8d4-9559-49fb-a4e2-190e7bb64092",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6e11d9b-dea5-4b75-b41a-117e6cecc0c9",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
