@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Components.States.WallGrub
 {
-    public class WallGrub : MonoBehaviour, IState
+    public class WallGrubState : MonoBehaviour, IState
     {
         [SerializeField] private Rigidbody2D body;
         public void Enter()

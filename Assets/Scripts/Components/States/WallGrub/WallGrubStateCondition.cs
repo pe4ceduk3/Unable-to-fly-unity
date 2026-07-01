@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace Components.States.WallGrub
 {
-    public class WallGrubCondition : MonoBehaviour, IStateCondition
+    public class WallGrubStateCondition : MonoBehaviour, IStateCondition
     {
         [SerializeField] private Component surfaceContact;
         [SerializeField] private Component wall;
