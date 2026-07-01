@@ -1,8 +1,9 @@
 using Interfaces.FiniteStateMachine;
+using UnityEngine;
 
 namespace Components.FiniteStateMachine
 {
-    public class StateTransitions : IStateTransitions
+    public class StateTransitions : MonoBehaviour, IStateTransitions
     {
         public IStateContext[] NextStatesOnExit { get; set; }
         public IStateContext[] NextStatesOnInput { get; set; }
