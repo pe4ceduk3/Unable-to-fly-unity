@@ -9,9 +9,6 @@ namespace Components.States.Jump
         [SerializeField] private InputActionReference jumpAction;
         public bool CanEnter() => false;
         public bool CanExit() => false;
-        public bool CanEnterOnInput(InputAction inputAction)
-        {
-            return jumpAction.action == inputAction;
-        }
+        public bool CanEnterOnInput(InputAction inputAction) => jumpAction.action == inputAction; 
     }
 }

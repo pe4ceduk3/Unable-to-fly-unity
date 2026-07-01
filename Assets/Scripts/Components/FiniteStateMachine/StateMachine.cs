@@ -1,3 +1,5 @@
+using System;
+using Interfaces;
 using Interfaces.FiniteStateMachine;
 using Interfaces.Listeners;
 using UnityEngine;
@@ -5,11 +7,17 @@ using UnityEngine.InputSystem;
 
 namespace Components.FiniteStateMachine
 {
+    [Serializable]
     public class StateMachine : MonoBehaviour, IStateMachine, IStateMachineData
     {
-        public IStateContext CurrentStateContext { get; set; }
-        [SerializeField] private Component currentStateContext;
+        [SerializeField] private SerializeInterface<IStateContext> currentStateContext;
         [SerializeReference] private IInputReader inputReader;
+
+        public IStateContext CurrentStateContext
+        {
+            get => currentStateContext.Value;
+            set => currentStateContext = new SerializeInterface<IStateContext>(value as UnityEngine.Object);
+        }
         
         public void ChangeState(IStateContext newStateContext)
         {
@@ -31,11 +39,6 @@ namespace Components.FiniteStateMachine
         {
             CurrentStateContext = state;
             state.State.Enter();
-        }
-
-        private void OnValidate()
-        {
-            if (currentStateContext is IStateContext targetStateContext) CurrentStateContext = targetStateContext;
         }
         private void FixedUpdate()
         {

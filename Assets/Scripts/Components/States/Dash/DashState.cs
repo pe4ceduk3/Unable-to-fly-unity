@@ -2,6 +2,7 @@ using Interfaces.Data;
 using Interfaces.FiniteStateMachine;
 using Interfaces.Movement;
 using UnityEngine;
+using Interfaces;
 
 namespace Components.States.Dash
 {
@@ -9,29 +10,18 @@ namespace Components.States.Dash
     {
         [Header("Objects")]
         [SerializeField] private Rigidbody2D body;
-        [Header("Components")]
-        [SerializeField] private Component linearMovement;
-        [Header("Components data")]
-        [SerializeField] private Component speedData;
-        [SerializeField] private Component directionData;
-        
-        private ILinearMovement _linearMovement;
-        
-        private ISpeedData _speedData;
-        private IDirectionData _directionData;
-        
+        [Header("Components")] 
+        [SerializeField] private SerializeInterface<ILinearMovement> linearMovement;
+
+        [Header("Components data")] 
+        [SerializeField] private SerializeInterface<IDirectionData> direction;
+        [SerializeField] private SerializeInterface<ISpeedData> speed;
+          
         public void Enter()
         {
-            _linearMovement.ApplyLinearSpeed(_speedData, _directionData, body);
+            linearMovement.Value.ApplyLinearSpeed(speed.Value, direction.Value, body);
         }
         public void Exit() {}
         public void FixedProcess() {}
-
-        private void OnValidate ()
-        {
-            if (linearMovement is ILinearMovement targetLinearMovement) _linearMovement = targetLinearMovement;
-            if (speedData is ISpeedData targetSpeed) _speedData = targetSpeed;
-            if (directionData is IDirectionData targetDirection) _directionData = targetDirection;
-        }
     }
 }

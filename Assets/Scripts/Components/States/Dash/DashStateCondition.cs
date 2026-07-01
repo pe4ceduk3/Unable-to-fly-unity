@@ -9,9 +9,6 @@ namespace Components.States.Dash
         [SerializeField] private InputActionReference dashAction;
         public bool CanEnter() => false;
         public bool CanExit() => false;
-        public bool CanEnterOnInput(InputAction inputAction)
-        {
-            return dashAction.action == inputAction;
-        }
+        public bool CanEnterOnInput(InputAction inputAction) => dashAction.action == inputAction;
     }
 }
