@@ -521,9 +521,11 @@ GameObject:
   - component: {fileID: 1488679393}
   - component: {fileID: 1488679395}
   - component: {fileID: 1488679398}
-  - component: {fileID: 1488679399}
-  - component: {fileID: 1488679400}
+  - component: {fileID: 1488679402}
   - component: {fileID: 1488679401}
+  - component: {fileID: 1488679400}
+  - component: {fileID: 1488679399}
+  - component: {fileID: 1488679403}
   m_Layer: 31
   m_Name: Player
   m_TagString: Untagged
@@ -689,27 +691,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1488679392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Script: {fileID: 11500000, guid: c3c1bf432de24b8cb4e0842324f9c5ae, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: 
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::Components.States.Jump.JumpStateCondition
+  jumpAction: {fileID: 0}
 --- !u!114 &1488679400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,10 +704,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1488679392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bb75e1d527b4fd49a3846a37f380cb6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b03284756534da5bbbfd62c31273905, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Objects.Characters.Player
-  inputAction: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::Components.States.Jump.JumpState
+  body: {fileID: 0}
+  ballisticsProcessor: {fileID: 0}
+  linearMovement: {fileID: 0}
+  ballisticsData: {fileID: 0}
+  directionData: {fileID: 0}
+  gravityData: {fileID: 0}
+  speedData: {fileID: 0}
 --- !u!114 &1488679401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,31 +723,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 1488679392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb0f2d624c14bf6a6fc022c10849ac8, type: 3}
+  m_Script: {fileID: 11500000, guid: 019558ce84e6430f8b1ab784e8514372, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CombatController
-  commandBinds:
-  - commandId: d
-    inputAction:
-      m_UseReference: 0
-      m_Action:
-        m_Name: Input
-        m_Type: 0
-        m_ExpectedControlType: 
-        m_Id: 4902b084-f6e2-4fcd-b8d3-8d2462da1630
-        m_Processors: 
-        m_Interactions: 
-        m_SingletonActionBindings:
-        - m_Name: 
-          m_Id: fc763bd1-2172-4ede-bbe0-35a2f60089f0
-          m_Path: 
-          m_Interactions: 
-          m_Processors: 
-          m_Groups: 
-          m_Action: Input
-          m_Flags: 0
-        m_Flags: 0
-      m_Reference: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::Components.FiniteStateMachine.StateContext
+  state: {fileID: 0}
+  condition: {fileID: 0}
+  transition: {fileID: 0}
+--- !u!114 &1488679402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488679392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf41315e9e04ad68c284dd0ca8c6073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Components.FiniteStateMachine.StateMachine
+  currentStateContext: {fileID: 0}
+  inputReader:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &1488679403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488679392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb90d4fdb0c4878b2fb35b0b6b67fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Components.States.Dash.DashState
+  body: {fileID: 0}
+  linearMovement: {fileID: 0}
+  speedData: {fileID: 0}
+  directionData: {fileID: 0}
 --- !u!1 &1883460153
 GameObject:
   m_ObjectHideFlags: 0
