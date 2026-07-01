@@ -2,9 +2,9 @@ using UnityEngine;
 using Interfaces.Data;
 namespace Interfaces.Listeners
 {
-    public interface ISurfaceContact
+    public interface ISurfaceChecker
     {
-       bool HasSurface(ISurfaceData data);
+       void HasSurface(ISurfaceData data, ref ISurfaceContactData contactData);
        void DrawDebug(ISurfaceData data, Color color);
     }
 }

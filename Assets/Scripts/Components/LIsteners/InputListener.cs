@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace Components.Listeners
 {
+    [Serializable]
     public class InputListener : MonoBehaviour, IInputReader
     {
         [SerializeField] private InputActionAsset inputActionAsset;
