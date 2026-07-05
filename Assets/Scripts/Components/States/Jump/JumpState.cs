@@ -16,7 +16,6 @@ namespace Components.States.Jump
         [Header("Components data")]
         [SerializeField] private SerializeInterface<IBallisticsData> ballisticsData;
         [SerializeField] private SerializeInterface<IDirectionData> directionData;
-        [SerializeField] private SerializeInterface<IGravityData> gravityData;
         [SerializeField] private SerializeInterface<ISpeedData> speedData;
         
         public void Enter()
@@ -26,7 +25,7 @@ namespace Components.States.Jump
         public void Exit() { body.linearVelocity = Vector2.zero; }
         public void FixedProcess()
         {
-            ballisticsProcessor.Value.ApplyGravity(ballisticsData.Value, gravityData.Value, body);
+            ballisticsProcessor.Value.ApplyGravity(ballisticsData.Value, body);
             linearMovement.Value.ApplyLinearSpeed(speedData.Value, directionData.Value, body);
         }
     }
