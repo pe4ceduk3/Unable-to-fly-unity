@@ -10,13 +10,14 @@ namespace Components.Movement
         {
             float gravity = body.linearVelocity.y - (data.Gravity * Time.fixedDeltaTime);
             body.linearVelocity = new Vector2(body.linearVelocity.x, gravity);
+
+            if (body.linearVelocity.y < data.MaxGravity) return;
+            body.linearVelocity = new Vector2(body.linearVelocity.x, data.MaxGravity);
         }
         public void StopGravity(IGravityData data, Rigidbody2D body)
         {
             if (body.linearVelocity.y > 0.0f) return;
             body.linearVelocity = new Vector2(body.linearVelocity.x, 0);
-            if (body.linearVelocity.y < data.MaxGravity) return;
-            body.linearVelocity = new Vector2(body.linearVelocity.x, data.MaxGravity);
         }
     }
 }
