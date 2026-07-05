@@ -1,10 +1,11 @@
 using Interfaces.Data;
+using UnityEngine;
 
 namespace Components.Data
 {
-    public class BallisticsData : IBallisticsData
+    public class BallisticsData : MonoBehaviour, IBallisticsData
     {
-        public float Peak { get; set; }
-        public float Duration { get; set; }
+        [field: SerializeField] public float Peak { get; set; }
+        [field: SerializeField] public float Duration { get; set; } 
     }
 }

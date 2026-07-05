@@ -1,9 +1,10 @@
 using Interfaces.Data;
+using UnityEngine;
 
 namespace Components.Data
 {
-    public class SpeedData : ISpeedData
+    public class SpeedData : MonoBehaviour, ISpeedData
     {
-        public float Speed { get; set; } = 0.0f;
+        [field: SerializeField] public float Speed { get; set; } = 0.0f;
     }
 }

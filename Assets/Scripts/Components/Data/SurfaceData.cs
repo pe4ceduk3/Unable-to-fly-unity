@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Components.Data
 {
-    public class SurfaceData : ISurfaceData
+    public class SurfaceData : MonoBehaviour, ISurfaceData
     {
-        public Transform Checker { get; set; }
-        public float Radius { get; set; }
-        public LayerMask WhatIsSurface { get; set; }
+        [field: SerializeField] public Transform Checker { get; set; }
+        [field: SerializeField] public float Radius { get; set; }
+        [field: SerializeField] public LayerMask WhatIsSurface { get; set; }
     }
 }

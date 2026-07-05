@@ -1,9 +1,10 @@
 using Interfaces.Data;
+using UnityEngine;
 
 namespace Components.Data
 {
-    public class DamageData : IDamageData
+    public class DamageData : MonoBehaviour, IDamageData
     {
-        public float Damage { get; set; } = 0.0f;
+        [field: SerializeField] public float Damage { get; set; } = 0.0f;
     }
 }
