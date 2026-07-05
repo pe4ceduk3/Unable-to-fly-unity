@@ -1,6 +1,6 @@
 namespace Interfaces.Data
 {
-    public interface IDamageable
+    public interface IDamageableData
     {
         bool CanTakeDamage { get; set; }
         float Damage { get; set; }
